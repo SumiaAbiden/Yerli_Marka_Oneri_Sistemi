@@ -1,0 +1,243 @@
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Yerli Keşif</title>-->
+
+<!--    &lt;!&ndash; Box Icons &ndash;&gt;-->
+<!--    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>-->
+
+<!--    &lt;!&ndash; Custom CSS &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="styles/style.css">-->
+
+<!--    &lt;!&ndash; Google Fonts &ndash;&gt;-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">-->
+
+<!--    <style>-->
+<!--        /* Output Section Styling */-->
+<!--        .recommendation-section {-->
+<!--            background-color: #f4f4f4;-->
+<!--            padding: 40px 20px;-->
+<!--            margin-top: 50px;-->
+<!--            border-radius: 20px;-->
+<!--        }-->
+
+<!--        .recommendation-title {-->
+<!--            font-size: 2.8rem;-->
+<!--            text-align: center;-->
+<!--            margin-bottom: 30px;-->
+<!--            color: #674c74;-->
+<!--            font-weight: 700;-->
+<!--        }-->
+
+<!--        .recommendation-container {-->
+<!--            display: flex;-->
+<!--            flex-wrap: wrap;-->
+<!--            justify-content: center;-->
+<!--            gap: 2rem;-->
+<!--        }-->
+
+<!--        .product-card {-->
+<!--            background-color: #fff;-->
+<!--            padding: 20px;-->
+<!--            width: 240px;-->
+<!--            border-radius: 15px;-->
+<!--            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);-->
+<!--            transition: all 0.3s ease-in-out;-->
+<!--            text-align: center;-->
+<!--            font-size: 1.6rem;-->
+<!--            font-weight: 500;-->
+<!--            color: #333;-->
+<!--        }-->
+
+<!--        .product-card:hover {-->
+<!--            transform: translateY(-5px);-->
+<!--            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);-->
+<!--        }-->
+<!--    </style>-->
+
+<!--</head>-->
+
+<!--<body>-->
+
+<!--    &lt;!&ndash; Header &ndash;&gt;-->
+<!--    <header class="header">-->
+<!--        <a href="#" class="logo">Yerli Keşif</a>-->
+<!--        <i class='bx bx-menu' id="menu-icon"></i>-->
+<!--        <nav class="navbar">-->
+<!--            <a href="#home" class="active">Anasayfa</a>-->
+<!--            <a href="#about">Hakkımızda</a>-->
+<!--            <a href="#skills">Neden Yerli Marka</a>-->
+<!--            <a href="#portfolio">Yeni Markalar</a>-->
+<!--            <a href="#contact">İletişim</a>-->
+<!--        </nav>-->
+<!--    </header>-->
+
+<!--    &lt;!&ndash; Home Section &ndash;&gt;-->
+<!--    <section class="home" id="home">-->
+<!--        <div class="home-content">-->
+<!--            <h1>Hemen başla, ihtiyacın olan yerli markayı ve ürünü bul!</h1>-->
+<!--        </div>-->
+
+<!--        <div class="baloncuk">-->
+<!--            <input type="text" id="userInput" placeholder="Yerli marka bir telefon almak istiyorum...">-->
+<!--            <button onclick="startAssistant()">Başla</button>-->
+<!--        </div>-->
+
+<!--        <div id="cevapDiv" class="recommendation-section"></div>-->
+<!--    </section>-->
+
+<!--    &lt;!&ndash; Other Sections &ndash;&gt;-->
+<!--    &lt;!&ndash; (your about, skills, portfolio, contact sections remain the same) &ndash;&gt;-->
+
+<!--    &lt;!&ndash; Scroll Reveal &ndash;&gt;-->
+<!--    <script src="https://unpkg.com/scrollreveal"></script>-->
+
+<!--    &lt;!&ndash; Custom JS &ndash;&gt;-->
+<!--    <script src="script/script.js"></script>-->
+
+<!--</body>-->
+
+<!--</html>-->
+<!--===============================================================================================================-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yerli Keşif</title>
+
+    <!-- Box Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="logo">Yerli Keşif</a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="#home" class="active">Anasayfa</a>
+            <a href="#about">Hakkımızda</a>
+            <a href="#skills">Neden Yerli Marka</a>
+            <a href="#portfolio">Yeni Markalar</a>
+            <a href="#contact">İletişim</a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hemen başla, ihtiyacın olan yerli markayı ve ürünü bul!</h3>
+        </div>
+
+        <div class="baloncuk">
+            <input type="text" id="userInput" placeholder="Yerli marka bir telefon almak istiyorum..." />
+            <button onclick="startAssistant()">Başla</button>
+        </div>
+
+        <div class="cevap" id="cevapDiv"></div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2 class="heading">Yerli Keşif <span>Hakkında</span></h2>
+            <p>"Beş yazılım mühendisliği öğrencisi olarak Yerli Marka Öneri Chatbotu Projesi'ni tasarlama amacımız, kullanıcılarımıza Türkiye’nin dört bir yanından gelen en özel yerli markaları ve ürünleri tanıtmaktır."</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <h2 class="heading">Neden Yerli Marka</h2>
+        <p>Yerli markalar, sadece ekonomik anlamda değil, toplumsal ve çevresel sürdürülebilirlik açısından da önemli bir yer tutar. Yerli markalarla yapılan alışveriş, sadece bireysel bir tüketim değil, aynı zamanda toplum ve ülke için de önemli bir katkıdır.</p>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <h2 class="heading">Yeni Markalar</h2>
+
+        <div class="portfolio-container">
+            <div class="portfolio-box">
+                <img src="https://cdn.myikas.com/images/theme-images/0cc0481d-86de-4468-ab36-8fa553bc2369/image_360.webp" alt="">
+                <div class="portfolio-layer">
+                    <h4>WIWIFY</h4>
+                    <a href="https://wiwify.com/"><i class='bx bx-link'></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="https://dirilisenerjidrink.com//panel/uploads/settings_v/1280x720/logoicin-yatay-dirilis.png" alt="">
+                <div class="portfolio-layer">
+                    <h4>Diriliş Kola</h4>
+                    <a href="https://dirilisenerjidrink.com/index.html"><i class='bx bx-link'></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="https://www.mipo.com.tr/catalog/view/theme/mipo/assets/images/logo/mipo-icon.svg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Mipo</h4>
+                    <a href="#"><i class='bx bx-link'></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="https://www.bobajoy.com.tr//data/genel/bobajoy_logo_231x71.png" alt="">
+                <div class="portfolio-layer">
+                    <h4>Bobajoy</h4>
+                    <a href="#"><i class='bx bx-link'></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="heading">İletişime Geç!</h2>
+        <form action="#">
+            <div class="input-box">
+                <input type="text" placeholder="İsim Soyisim">
+                <input type="email" placeholder="Email Adresi">
+            </div>
+
+            <div class="input-box">
+                <input type="number" placeholder="Telefon Numarası">
+                <input type="text" placeholder="Email Konusu">
+            </div>
+
+            <textarea placeholder="Mesajınız"></textarea>
+            <input type="submit" value="Gönder" class="btn">
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="foter-text">
+            <p>Copyright &copy; 2024 by AI Dream Team | All Rights Reserved.</p>
+        </div>
+
+        <div class="footer-iconTop">
+            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    </footer>
+
+    <!-- Scroll Reveal JS -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom JS -->
+    <script src="script/script.js"></script>
+</body>
+
+</html>

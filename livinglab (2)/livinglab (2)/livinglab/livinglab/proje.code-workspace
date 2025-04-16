@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "..proje"
+		},
+		{
+			"path": "..dinamikproj"
+		},
+		{
+			"path": "../..AppData/..Desktop/livinglab"
+		},
+		{
+			"path": "../..AppData/..Desktop/livinglab"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "livinglab"
+	}
+}
