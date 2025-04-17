@@ -19,9 +19,14 @@ category_labels = ["gıda", "elektronik", "otomotiv", "temizlik"]
 
 # Subcategories
 alt_category_labels = {
-    "gıda": ["Meyve Suyu / İçecek", "Çikolata", "Kraker / Bisküvi", "Şekerleme", "Su", "Kahve", "Kahvaltılık", "Sıcak İçecek", "Çay", "Gazlı İçecek", "Diğer Gıda"],
-    "elektronik": ["Telefon", "Beyaz Eşya", "Televizyon", "Ses Sistemi / Kulaklık", "Diğer Elektronik"],
-    "temizlik": ["Çamaşır Temizliği", "Kişisel Temizlik", "Bulaşık Temizliği", "Yüzey Temizliği", "Diğer Temizlik"],
+    "gıda": ["Meyve Suyu", "İçecek", "Çikolata", "Kraker", "Bisküvi", 'Soğuk çay', "Soda", "Süt", "Kek", 'Atıştırmalık',
+             "Yağ", "Dondurma", 'Enerji İçeceği', "Şekerleme", "Su", "Kahve", "Kahvaltılık", "İçecek", 'Yoğurt', 'Et', "Sıcak İçecek",
+             "Çay", "Gazlı İçecek", "Diğer Gıda"],
+    "elektronik": ["Beyaz Eşya", "Televizyon", "Ses Sistemi / Kulaklık", "Küçük Ev Aletleri",
+                   "Küçük Mutfak Aletleri", "Klima", "Diğer Elektronik"],
+    "temizlik": ["Çamaşır Temizliği", "Kişisel Temizlik", 'Banyo Temizliği', "Oda Kokusu", "Bulaşık Temizliği",
+                 "Yüzey Temizliği", 'Makine Temizleyici', 'Mutfak', 'Temizlik bezi/Süngeri/Paspas',
+                 'Genel Temizlik', "Diğer Temizlik"],
     "otomotiv": ["Otomotiv / Savunma"]
 }
 
