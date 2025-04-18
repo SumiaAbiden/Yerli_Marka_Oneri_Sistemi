@@ -47,7 +47,7 @@ ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact 
 ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
 ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
 
-// Assistant Product Recommendation Function
+
 function startAssistant() {
     const userInput = document.getElementById("userInput").value;
 
@@ -58,14 +58,26 @@ function startAssistant() {
         },
         body: JSON.stringify({ input: userInput })
     })
-        .then(response => response.json())
-        .then(data => {
-            const cevapDiv = document.getElementById("cevapDiv");
-            const subcategoryHTML = data.subcategory ? `<h4 class="output-subtitle">${data.subcategory}</h4>` : '';
-            // If there are products
-            if (data.products.length > 0) {
-                cevapDiv.innerHTML = `
-                <h3 class="output-title">${data.message}</h3>
+    .then(response => response.json())
+    .then(data => {
+        const cevapDiv = document.getElementById("cevapDiv");
+
+        //  Kategori ve Alt Kategori ayrı ayrı
+        cevapDiv.innerHTML = `
+            <div class="kategori-bilgi">
+                <span>
+                <h3 class="kategori">En iyi kategori: <strong>${data.category}</strong></h3>
+                </span>
+                <span>
+                <h3 class="alt-kategori">Alt kategori: <strong>${data.subcategory}</strong></h3>
+                </span>
+            </div>
+        `;
+
+        
+        if (data.products.length > 0) {
+            cevapDiv.innerHTML += `
+
                 <div class="recommendation-container">
                     ${data.products.map(product => `
                         <div class="product-card">
@@ -73,15 +85,63 @@ function startAssistant() {
                         </div>
                     `).join('')}
                 </div>
-                `;
-            } else {
-                cevapDiv.innerHTML = `<h3 class="output-title">${data.message}</h3>`;
-            }
-        })
-        .catch(error => {
-            console.error("Error:", error);
-        });
+            `;
+        } else {
+            cevapDiv.innerHTML += `<h3 class="output-title">${data.message}</h3>`;
+        }
+
+        // Scroll yukarı
+        document.getElementById("home").scrollIntoView({ behavior: "smooth" });
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
 }
+
+
+
+
+
+//// Assistant Product Recommendation Function
+//function startAssistant() {
+//    const userInput = document.getElementById("userInput").value;
+//
+//    fetch("http://localhost:5000/process", {
+//        method: "POST",
+//        headers: {
+//            "Content-Type": "application/json",
+//        },
+//        body: JSON.stringify({ input: userInput })
+//    })
+//        .then(response => response.json())
+//        .then(data => {
+//            const cevapDiv = document.getElementById("cevapDiv");
+//            const subcategoryHTML = data.subcategory ? `<h4 class="output-subtitle">${data.subcategory}</h4>` : '';
+//
+//            if (data.products.length > 0) {
+//                cevapDiv.innerHTML = `
+//                <h3 class="output-title">${data.message}</h3>
+//                <div class="recommendation-container">
+//                    ${data.products.map(product => `
+//                        <div class="product-card">
+//                            <h4>${product}</h4>
+//                        </div>
+//                    `).join('')}
+//                </div>
+//                `;
+//
+//            } else {
+//                cevapDiv.innerHTML = `<h3 class="output-title">${data.message}</h3>`;
+//            }
+//
+//            // 🛠️ Scroll yukarı "home" bölümüne
+//            document.getElementById("home").scrollIntoView({ behavior: "smooth" });
+//        })
+//
+//        .catch(error => {
+//            console.error("Error:", error);
+//        });
+//}
 
 /*
 let sections = document.querySelectorAll('section');
