@@ -70,21 +70,19 @@ def process():
 
         if unique_products:
             message = (
-                f"En iyi kategori: {top_category.title()}\n"
+                f"En iyi kategori: {top_category.capitalize()}\n"
                 f"Alt kategori: {top_alt_category}\n"
-                # "Önerilen ürünler:\n" +
-                # "\n".join([f"- {product}" for product in unique_products])
             )
         else:
             message = (
-                f"En iyi kategori: {top_category.title()} - Alt kategori: {top_alt_category}.\n"
+                f"En iyi kategori: {top_category.capitalize()} - Alt kategori: {top_alt_category}.\n"
                 "Bu kategoriye uygun ürün bulunamadı."
             )
 
         return jsonify({
             "message": message,
             "products": unique_products,
-            "category": top_category,
+            "category": top_category.capitalize(),
             "subcategory": top_alt_category
         })
 
