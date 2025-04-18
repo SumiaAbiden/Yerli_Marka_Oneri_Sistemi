@@ -719,3 +719,37 @@ span{
     background-color: rgba(101, 75, 101, 0.9);
     transform: scale(1.03);
 }
+
+.kategori-bilgi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    font-size: 2rem;
+    margin: 2rem auto;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.kategori-bilgi .kategori,
+.kategori-bilgi .alt-kategori {
+    font-weight: 600;
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
