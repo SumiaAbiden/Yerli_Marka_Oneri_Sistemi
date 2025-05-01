@@ -19,9 +19,7 @@ category_labels = ["gıda", "elektronik", "otomotiv", "temizlik"]
 
 # Subcategories
 alt_category_labels = {
-    "gıda": ["Meyve Suyu", "İçecek", "Çikolata", "Kraker", "Bisküvi", 'Soğuk çay', "Soda", "Süt", "Kek", 'Atıştırmalık',
-             "Yağ", "Dondurma", 'Enerji İçeceği', "Şekerleme", "Su", "Kahve", "Kahvaltılık", "İçecek", 'Yoğurt', 'Et', "Sıcak İçecek",
-             "Çay", "Gazlı İçecek", "Diğer Gıda"],
+    "gıda": ["İçecek",  'Atıştırmalık', "Yağ",  "Kahvaltılık", 'Yoğurt', 'Et', "Diğer Gıda"],
     "elektronik": ["Beyaz Eşya", "Televizyon", "Ses Sistemi / Kulaklık", "Küçük Ev Aletleri",
                    "Küçük Mutfak Aletleri", "Klima", "Diğer Elektronik"],
     "temizlik": ["Çamaşır Temizliği", "Kişisel Temizlik", 'Banyo Temizliği', "Oda Kokusu", "Bulaşık Temizliği",
@@ -29,6 +27,19 @@ alt_category_labels = {
                  'Genel Temizlik', "Diğer Temizlik"],
     "otomotiv": ["Otomotiv / Savunma"]
 }
+
+alt_category_labels2 = {
+    "İçecek" : ["Süt", "Su", "Sıcak İçecek", "Soğuk İçecek"],
+    "Atıştırmalık": ["Çikolata", "Kraker", "Bisküvi", "Kek", "Dondurma", "Şekerleme"]
+}
+
+alt_category_labels3 = {
+    "Soğuk İçecek" : ["Meyve Suyu", 'Soğuk çay', "Soda", 'Enerji İçeceği', "Gazlı İçecek"],
+    "Sıcak İçecek": ["Kahve", "Çay"]
+}
+
+
+
 
 # Load product data
 def load_data(filename="scraped_data_with_subcategories.csv"):
@@ -40,7 +51,67 @@ def load_data(filename="scraped_data_with_subcategories.csv"):
             product_data.append((row[0], row[1], row[2], row[3]))  # name, brand, category, subcategory
     return product_data
 
+
 product_data = load_data()
+
+
+
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+def send_email(subject, body, to_email):
+    sender_email = "yerlikesif@gmail.com"
+    app_password = "hmrb bbzs qrrp nlxo"  # Google’dan aldığın uygulama şifresi
+
+    msg = MIMEMultipart() #MIME çok parçalı mesaj
+    msg["From"] = sender_email
+    msg["To"] = to_email
+    msg["Subject"] = subject
+    msg.attach(MIMEText(body, "plain")) #plain:HTML değil
+
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:  #465: SMTP protokolü için güvenli (şifreli) bağlantı kurulan port numarasıdır.
+        server.login(sender_email, app_password)
+        server.sendmail(sender_email, to_email, msg.as_string())
+
+
+@app.route('/contact', methods=['POST'])
+def contact():
+    try:
+        data = request.get_json()
+
+        name = data.get("name")
+        email = data.get("email")
+        phone = data.get("phone")
+        subject = data.get("subject")
+        message = data.get("message")
+
+        # Veriyi terminalde göster (test için)
+        print(f"İletişim mesajı:\nAd: {name}\nEmail: {email}\nTelefon: {phone}\nKonu: {subject}\nMesaj: {message}")
+
+        # CSV’ye kaydetmek
+        with open("contact_messages.csv", "a", newline="", encoding="utf-8") as file:  #a: append: sonuna ekle olanlara dokunma
+            writer = csv.writer(file)
+            writer.writerow([name, email, phone, subject, message])
+
+        full_message = (
+            f"İsim: {name}\n"
+            f"Email: {email}\n"
+            f"Telefon: {phone}\n"
+            f"Konu: {subject}\n\n"
+            f"Mesaj:\n{message}"
+        )
+        send_email(subject=f"Yeni İletişim: {subject}",
+                   body=full_message,
+                   to_email="yerlikesif@gmail.com")
+        return jsonify({"message": "Mesaj başarıyla gönderildi ve e‑posta yollandı!"}), 200
+
+    except Exception as e:
+        print("Hata:", e)
+        return jsonify({"error": "Bir hata oluştu."}), 500
+
+
+
 
 @app.route('/process', methods=['POST'])
 def process():
@@ -57,6 +128,26 @@ def process():
         alt_labels = alt_category_labels.get(top_category, [])
         alt_category_result = classifier(user_input, alt_labels)
         top_alt_category = alt_category_result["labels"][0]
+
+        # Alt kategori 2 ve 3 için ortak değişken kullan
+        current_subcategory = top_alt_category
+
+        # İkinci seviye alt kategori
+        if current_subcategory in alt_category_labels2:
+            sub_labels2 = alt_category_labels2[current_subcategory]
+            if sub_labels2:  # Liste boş mu kontrol et
+                sub_category_result2 = classifier(user_input, sub_labels2)
+                current_subcategory = sub_category_result2["labels"][0]
+
+        # Üçüncü seviye alt kategori
+        if current_subcategory in alt_category_labels3:
+            sub_labels3 = alt_category_labels3[current_subcategory]
+            if sub_labels3:
+                sub_category_result3 = classifier(user_input, sub_labels3)
+                current_subcategory = sub_category_result3["labels"][0]
+
+        top_alt_category = current_subcategory  # En son kategoriyi güncelle
+
 
         # Filter matching products
         matched = [
@@ -88,6 +179,7 @@ def process():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True)
