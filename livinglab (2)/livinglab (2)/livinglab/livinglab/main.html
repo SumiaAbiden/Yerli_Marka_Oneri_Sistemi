@@ -1,67 +1,88 @@
+<!-- HTML5 belgesi oldugunu belirtir -->
 <!DOCTYPE html>
+
+<!-- HTML belgesinin baslangici ve dilini belirtir -->
 <html lang="en">
 
+<!-- Sayfanin baslik bilgileri (gizli kisim) -->
 <head>
+    <!-- Karakter seti UTF-8 olarak ayarlandi -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yerli Keşif</title>
 
-    <!-- Box Icons -->
+    <!-- Internet Explorer uyumluluk modu -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobil cihazlar icin ekran boyutu ve zoom ayarlari -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tarayici sekmesinde gorunecek baslik -->
+    <title>Yerli Kesif</title>
+
+    <!-- Boxicons ikon kutuphanesini sayfaya ekler -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <!-- Custom CSS -->
+    <!-- Disaridan kendi yazdigimiz CSS dosyasini ekler -->
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
+<!-- Sayfa govdesi baslangici -->
 <body>
-    <!-- Header -->
+    <!-- Sayfa ust kismi: logo ve menuler -->
     <header class="header">
-        <a href="#" class="logo">Yerli Keşif</a>
+        <!-- Logo metni -->
+        <a href="#" class="logo">Yerli Kesif</a>
+
+        <!-- Mobil menuler icin hamburger ikon -->
         <i class='bx bx-menu' id="menu-icon"></i>
 
+        <!-- Sayfa ici menuler -->
         <nav class="navbar">
             <a href="#home" class="active">Anasayfa</a>
-            <a href="#about">Hakkımızda</a>
+            <a href="#about">Hakkimizda</a>
             <a href="#skills">Neden Yerli Marka</a>
             <a href="#portfolio">Yeni Markalar</a>
-            <a href="#contact">İletişim</a>
+            <a href="#contact">Iletisim</a>
         </nav>
     </header>
 
-    <!-- Home Section -->
+    <!-- Anasayfa bolumu -->
     <section class="home" id="home">
+        <!-- Yazi kutusu ve baslik -->
         <div class="home-content">
-            <h3>Hemen başla, ihtiyacın olan yerli markayı ve ürünü bul!</h3>
+            <h3>Hemen basla, ihtiyacin olan yerli markayi ve urunu bul!</h3>
         </div>
 
+        <!-- Kullanicinin metin girecegi kutu ve buton -->
         <div class="baloncuk">
-            <input type="text" id="userInput" placeholder="Yerli ürünlerden bir kahvaltı sofrası hazırlamak istiyorum..." />
-            <button onclick="startAssistant()">Başla</button>
+            <input type="text" id="userInput" placeholder="Yerli urunlerden bir kahvalti sofrasi hazirlamak istiyorum..." />
+            <button onclick="startAssistant()">Basla</button>
         </div>
 
+        <!-- Yapay zeka cevabinin gosterilecegi alan -->
         <div class="cevap" id="cevapDiv"></div>
     </section>
 
-    <!-- About Section -->
+    <!-- Hakkimizda bolumu -->
     <section class="about" id="about">
         <div class="about-content">
-            <h2 class="heading">Yerli Keşif <span>Hakkında</span></h2>
-            <p>"Beş yazılım mühendisliği öğrencisi olarak Yerli Marka Öneri Chatbotu Projesi'ni tasarlama amacımız, kullanıcılarımıza Türkiye’nin dört bir yanından gelen en özel yerli markaları ve ürünleri tanıtmaktır."</p>
+            <h2 class="heading">Yerli Kesif <span>Hakkinda</span></h2>
+            <p>"Bes yazilim muhendisligi ogrencisi olarak Yerli Marka Oneri Chatbotu Projesi'ni tasarlama amacimiz, kullanicilarimiza Turkiye'nin dort bir yanindan gelen en ozel yerli markalari ve urunleri tanitmaktir."</p>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Yerli markalar neden onemli bolumu -->
     <section class="skills" id="skills">
         <h2 class="heading">Neden Yerli Marka</h2>
-        <p>Yerli markalar, sadece ekonomik anlamda değil, toplumsal ve çevresel sürdürülebilirlik açısından da önemli bir yer tutar. Yerli markalarla yapılan alışveriş, sadece bireysel bir tüketim değil, aynı zamanda toplum ve ülke için de önemli bir katkıdır.</p>
+        <p>Yerli markalar, sadece ekonomik anlamda degil, toplumsal ve cevresel surdurulebilirlik acisindan da onemli bir yer tutar. Yerli markalarla yapilan alisveris, sadece bireysel bir tuketim degil, ayni zamanda toplum ve ulke icin de onemli bir katkidir.</p>
     </section>
 
-    <!-- Portfolio Section -->
+    <!-- Yeni markalar bolumu -->
     <section class="portfolio" id="portfolio">
         <h2 class="heading">Yeni Markalar</h2>
 
+        <!-- Markalarin gorsel ve linklerinin bulundugu kutular -->
         <div class="portfolio-container">
+            <!-- Her bir marka icin gorsel kutusu ve link -->
             <div class="portfolio-box">
                 <img src="https://cdn.myikas.com/images/theme-images/0cc0481d-86de-4468-ab36-8fa553bc2369/image_360.webp" alt="">
                 <div class="portfolio-layer">
@@ -73,7 +94,7 @@
             <div class="portfolio-box">
                 <img src="https://dirilisenerjidrink.com//panel/uploads/settings_v/1280x720/logoicin-yatay-dirilis.png" alt="">
                 <div class="portfolio-layer">
-                    <h4>Diriliş Kola</h4>
+                    <h4>Dirilis Kola</h4>
                     <a href="https://dirilisenerjidrink.com/index.html"><i class='bx bx-link'></i></a>
                 </div>
             </div>
@@ -96,53 +117,64 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Iletisim bolumu -->
     <section class="contact" id="contact">
-        <h2 class="heading">İletişime Geç!</h2>
+        <h2 class="heading">Iletisime Gec!</h2>
         <form id="contactForm" action="#">
-
+            <!-- Ad soyad ve email alanlari -->
             <div class="input-box">
-                <input type="text" name="name" placeholder="İsim Soyisim" required>
+                <input type="text" name="name" placeholder="Isim Soyisim" required>
                 <input type="email" name="email" placeholder="Email Adresi" required>
             </div>
 
+            <!-- Telefon ve konu alanlari -->
             <div class="input-box">
-                <input type="text" name="phone" placeholder="Telefon Numarası">
+                <input type="text" name="phone" placeholder="Telefon Numarasi">
                 <input type="text" name="subject" placeholder="Email Konusu">
             </div>
 
-            <textarea name="message" placeholder="Mesajınız" required></textarea>
-            <input type="submit" value="Gönder" class="btn">
+            <!-- Mesaj kutusu -->
+            <textarea name="message" placeholder="Mesajiniz" required></textarea>
+            <!-- Gonder butonu -->
+            <input type="submit" value="Gonder" class="btn">
         </form>
     </section>
 
-    <!-- Footer -->
+    <!-- Sayfa alt bilgi kismi -->
     <footer class="footer">
         <div class="foter-text">
+            <!-- Telif hatti bilgisi -->
             <p>Copyright &copy; 2024 by AI Dream Team | All Rights Reserved.</p>
         </div>
 
+        <!-- Yukari donme butonu -->
         <div class="footer-iconTop">
             <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
         </div>
     </footer>
 
-    <!-- Scroll Reveal JS -->
+    <!-- Sayfa kaydirilmali animasyonlari saglayan kutuphane -->
     <script src="https://unpkg.com/scrollreveal"></script>
 
-    <!-- Custom JS -->
+    <!-- Projeye ozel yazilmis JavaScript dosyasi -->
     <script src="script/script.js"></script>
 
-    <!-- Contact Form Handler -->
+    <!-- Iletisim formunun JavaScript ile calistirilmasi -->
     <script>
     document.addEventListener("DOMContentLoaded", function () {
+        <!-- Form elementi aliniyor -->
         const contactForm = document.getElementById("contactForm");
+
+        <!-- Form gonderildiginde calisacak olay -->
         contactForm.addEventListener("submit", function (e) {
+            <!-- Sayfanin yenilenmesini engeller -->
             e.preventDefault();
 
+            <!-- Form verileri aliniyor ve JSON formatina donusturuluyor -->
             const formData = new FormData(contactForm);
             const data = Object.fromEntries(formData.entries());
 
+            <!-- Flask API'ye POST istegi ile veri gonderiyoruz -->
             fetch("http://127.0.0.1:5000/contact", {
                 method: "POST",
                 headers: {
@@ -150,14 +182,17 @@
                 },
                 body: JSON.stringify(data)
             })
+                <!-- Cevabi JSON olarak aliyoruz -->
                 .then(res => res.json())
                 .then(result => {
-                    alert(result.message || "Mesaj başarıyla gönderildi!");
+                    <!-- Basariliysa mesaj goster ve formu sifirla -->
+                    alert(result.message || "Mesaj basariyla gonderildi!");
                     contactForm.reset();
                 })
                 .catch(error => {
+                    <!-- Hata varsa konsola yazdir ve kullaniciya bildir -->
                     console.error("Hata:", error);
-                    alert("Bir hata oluştu. Lütfen tekrar deneyin.");
+                    alert("Bir hata olustu. Lutfen tekrar deneyin.");
                 });
         });
     });
