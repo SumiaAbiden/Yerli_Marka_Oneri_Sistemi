@@ -1,730 +1,706 @@
+/* Google Fonts'tan özel fontları içe aktarır */
 @import url('https://fonts.googleapis.com/css2?family=Lugrasimo&family=Lumanosimo&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    border: none;
-    outline: none;
-    scroll-behavior: smooth;
-    font-family: 'Poppins',sans-serif;
+/* Tüm elementler için genel sıfırlama ve temel stiller */
+*{
+    margin: 0; /* Varsayılan boşluğu kaldırır */
+    padding: 0; /* Varsayılan iç boşluğu kaldırır */
+    box-sizing: border-box; /* Kenarlıklar ve dolgu içerik genişliğine dahil edilir */
+    text-decoration: none; /* Link altı çizgilerini kaldırır */
+    border: none; /* Tüm kenarlıkları sıfırlar */
+    outline: none; /* Odak çizgisini kaldırır */
+    scroll-behavior: smooth; /* Sayfa kaydırma yumuşak olur */
+    font-family: 'Poppins', sans-serif; /* Ana font ailesi */
 }
 
-:root {
-    --bg-color: #fff;
-    --second-bg-color: rgb(194, 177, 150);
-    --text-color: rgb(101, 75, 101);
-    --main-color: rgb(194, 177, 150);
+/* Temel renk değişkenlerini tanımlar */
+:root{
+    --bg-color: #fff; /* Arka plan rengi */
+    --second-bg-color: rgb(194, 177, 150); /* İkinci arka plan rengi */
+    --text-color: rgb(101, 75, 101); /* Yazı rengi */
+    --main-color: rgb(194, 177, 150); /* Ana vurgu rengi */
 }
 
-html {
-    font-size: 62.5%;
-    overflow-x: hidden;
+/* HTML genel yapı ayarları */
+html{
+    font-size: 62.5%; /* 1rem = 10px olur */
+    overflow-x: hidden; /* Yatay kaydırmayı engeller */
 }
 
-body {
-    background: var(--bg-color);
-    color: var(--text-color);
+/* Body genel görünüm ayarları */
+body{
+    background: var(--bg-color); /* Arka plan rengi */
+    color: var(--text-color); /* Metin rengi */
 }
 
-section {
-    min-height: 100vh;
-    padding: 10rem 9% 2rem;
+/* Her bir bölüm (section) için stil */
+section{
+    min-height: 100vh; /* Ekran yüksekliği kadar minimum alan */
+    padding: 10rem 9% 2rem; /* Üst, sağ-sol, alt boşluk */
 }
 
-.header {
-    position: fixed;
+/* Üst menü çubuğu */
+.header{
+    position: fixed; /* Sayfada sabit kalır */
     top: 0;
     left: 0;
     width: 100%;
     padding: 2rem 9%;
     background: var(--bg-color);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Logo ve menü arasında boşluk */
     align-items: center;
-    z-index: 100;
+    z-index: 100; /* Diğer elemanların üstünde göster */
 }
 
-    .header.sticky {
-        border-bottom: .1rem solid var(--second-bg-color);
-    }
+/* Scroll ile sticky class eklenirse altına çizgi eklenir */
+.header.sticky{
+    border-bottom: .1rem solid var(--second-bg-color);
+}
 
-.logo {
+/* Logo stili */
+.logo{
     font-size: 2.5rem;
     color: var(--text-color);
     font-weight: 600;
-    cursor: default;
+    cursor: default; /* Tıklanamaz */
 }
 
-.navbar a {
+/* Navbar bağlantı stilleri */
+.navbar a{
     font-size: 1.7rem;
     color: var(--text-color);
-    margin-left: 4rem;
-    transition: .3s;
+    margin-left: 4rem; /* Bağlantılar arası boşluk */
+    transition: .3s; /* Renk geçişi */
 }
 
-    .navbar a:hover,
-    .navbar a.active {
-        color: var(--main-color);
-    }
+/* Üzerine gelince veya aktif olunca rengi değiştir */
+.navbar a:hover,
+.navbar a.active{
+    color: var(--main-color);
+}
 
-#menu-icon {
+/* Menü ikonu stil (mobilde görünür olacak) */
+#menu-icon{
     font-size: 3.6rem;
     color: var(--main-color);
-    display: none;
+    display: none; /* Başta gizli */
 }
 
+/* Anasayfa (Home) bölümü stili */
 .home {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Dikey hizalama */
     justify-content: center;
     align-items: center;
-    height: 160vh;
+    height: 160vh; /* Normalden büyük alan */
     padding: 20px;
 }
 
-.home-img img {
+/* Ana görsel stili */
+.home-img img{
     width: 35vw;
-    animation: floatImage 4s ease-in-out infinite;
+    animation: floatImage 4s ease-in-out infinite; /* Sürekli yukarı aşağı hareket animasyonu */
 }
 
-@keyframes floatImage {
-    0% {
+/* Görsel için hareket animasyonu tanımı */
+@keyframes floatImage{
+    0%{
         transform: translateY(0);
     }
-
-    50% {
+    50%{
         transform: translateY(-2.4rem);
     }
-
-    100% {
+    100%{
         transform: translateY(0);
     }
 }
 
 
 .home-content h3 {
-    font-size: 4rem;
-    font-weight: 700;
-    text-align: left;
-    display: block;
-    margin-left: 0;
+    font-size: 4rem;            /* Yazı boyutu 4rem olarak ayarlandı (büyük başlık) */
+    font-weight: 700;           /* Yazı kalın yapıldı (bold) */
+    text-align: left;           /* Yazı sola hizalandı */
+    display: block;             /* Element blok olarak gösteriliyor */
+    margin-left: 0;             /* Sol kenar boşluğu sıfırlandı */
 }
-
 
 .baloncuk {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    margin-top: auto;
-    padding: 20px;
-    margin-bottom: 60px;
-    background-color: var(--bg-color);
-    border-radius: 15px;
-    box-shadow: 0px 4px 6px rgba(251, 251, 251, 0.1);
-    max-width: 600px;
-    margin: 20px auto;
+    display: flex;                      /* Flexbox düzeni kullanıldı */
+    flex-direction: column;            /* Öğeler dikey olarak sıralanacak */
+    justify-content: flex-end;         /* Öğeler dikeyde en alta hizalanacak */
+    align-items: center;               /* Öğeler yatayda ortalanacak */
+    margin-top: auto;                  /* Otomatik üst boşluk (genelde alta yapıştırır) */
+    padding: 20px;                     /* İç boşluk eklendi */
+    margin-bottom: 60px;               /* Alt boşluk verildi */
+    background-color: var(--bg-color);/* Arka plan rengi değişkenden alındı */
+    border-radius: 15px;               /* Kenarlar yuvarlatıldı */
+    box-shadow: 0px 4px 6px rgba(251, 251, 251, 0.1); /* Hafif gölge efekti verildi */
+    max-width: 600px;                  /* Maksimum genişlik 600 piksel */
+    margin: 20px auto;                 /* Üst-alt 20px boşluk ve yatayda ortalandı */
 }
 
-    .baloncuk input[type="text"] {
-        width: 100%;
-        border: 1px solid var(--bg-color);
-        border-radius: 5px;
-        font-size: 23px;
-        margin: 0 auto;
-        display: block;
-        margin-bottom: 30px;
-    }
+.baloncuk input[type="text"] {
+    width: 100%;                         /* Genişlik %100 (tam genişlik) */
+    border: 1px solid var(--bg-color);   /* Kenarlık arka plan rengiyle aynı */
+    border-radius: 5px;                  /* Köşeler hafif yuvarlatıldı */
+    font-size: 23px;                     /* Yazı boyutu 23 piksel */
+    margin: 0 auto;                      /* Yatayda ortalama */
+    display: block;                      /* Blok element yapıldı */
+    margin-bottom: 30px;                /* Alt boşluk verildi */
+}
 
+.baloncuk button {
+    background-color: var(--bg-color);  /* Arka plan rengi değişkenden alındı */
+    color: var(--text-color);           /* Yazı rengi değişkenden alındı */
+    border: none;                       /* Kenarlık kaldırıldı */
+    padding: 12px 20px;                 /* İç boşluk verildi */
+    border-radius: 10px;                /* Köşeler yuvarlatıldı */
+    cursor: pointer;                    /* İmleç üzerine gelince el simgesi olur */
+    font-size: 26px;                    /* Yazı boyutu büyük yapıldı */
+    margin-top: 30px;                   /* Üst boşluk verildi */
+    width: 100%;                        /* Buton genişliği %100 */
+}
 
-    .baloncuk button {
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        border: none;
-        padding: 12px 20px;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: 26px;
-        margin-top: 30px;
-        width: 100%;
-    }
-
-        .baloncuk button:hover {
-            color: #a79292;
-        }
-
+.baloncuk button:hover {
+    color: #a79292;                     /* Üzerine gelince yazı rengi değişir */
+}
 
 span {
-    color: rgb(194, 177, 150);
+    color: rgb(194, 177, 150);          /* <span> etiketi yazı rengi */
 }
 
 .home-content h1 {
-    font-size: 5.6rem;
-    font-weight: 700;
-    line-height: 1.3;
+    font-size: 5.6rem;                  /* Çok büyük başlık */
+    font-weight: 700;                   /* Kalın yazı */
+    line-height: 1.3;                   /* Satır yüksekliği */
 }
 
 .home-content p {
-    font-size: 1.6rem;
+    font-size: 1.6rem;                  /* Paragraf yazı boyutu */
 }
 
 .social-media a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+    display: inline-flex;               /* Satır içi esnek kutu */
+    justify-content: center;            /* Yatayda ortalanır */
+    align-items: center;                /* Dikeyde ortalanır */
     width: 4rem;
-    height: 4rem;
-    background: transparent;
-    border: .2rem solid rgb(194, 177, 150);
-    border-radius: 2rem;
-    font-size: 2rem;
-    color: rgb(194, 177, 150);
-    margin: 3rem 1.5rem 3rem 0;
-    transition: .5s ease;
+    height: 4rem;                       /* Genişlik ve yükseklik eşit (kare) */
+    background: transparent;            /* Arka plan şeffaf */
+    border: .2rem solid rgb(194, 177, 150); /* Kenarlık tanımlandı */
+    border-radius: 2rem;                /* Tam daire şekli */
+    font-size: 2rem;                    /* Yazı/ikon boyutu */
+    color: rgb(194, 177, 150);          /* Yazı rengi */
+    margin: 3rem 1.5rem 3rem 0;         /* Dış boşluklar */
+    transition: .5s ease;               /* Geçiş efekti */
 }
 
-    .social-media a:hover {
-        background: rgb(194, 177, 150);
-        color: #fff;
-        box-shadow: 0 0 1rem rgb(55, 7, 55);
-    }
+.social-media a:hover {
+    background: rgb(194, 177, 150);     /* Üzerine gelince arka plan rengi değişir */
+    color: #fff;                        /* Yazı rengi beyaz olur */
+    box-shadow: 0 0 1rem rgb(55, 7, 55);/* Hafif mor parıltı efekti */
+}
 
 .btn {
-    display: inline-block;
-    padding: 1rem 2.8rem;
-    background: #fff;
-    border-radius: 4rem;
-    box-shadow: 0 0 1rem var(--text-color);
-    font-size: 1.6rem;
-    color: var(--text-color);
-    font-weight: 600;
+    display: inline-block;              /* Satır içi blok */
+    padding: 1rem 2.8rem;               /* İç boşluk */
+    background: #fff;                   /* Beyaz arka plan */
+    border-radius: 4rem;                /* Tam yuvarlak köşeler */
+    box-shadow: 0 0 1rem var(--text-color); /* Gölge efekti */
+    font-size: 1.6rem;                  /* Yazı boyutu */
+    color: var(--text-color);           /* Yazı rengi */
+    font-weight: 600;                   /* Yarı kalın yazı */
 }
 
-    .btn:hover {
-        box-shadow: none;
-    }
-
+.btn:hover {
+    box-shadow: none;                   /* Üzerine gelince gölge kalkar */
+}
 
 .about {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    background: #fff;
+    display: flex;                      /* Flexbox düzeni */
+    justify-content: center;           /* Yatayda ortalanır */
+    align-items: center;               /* Dikeyde ortalanır */
+    gap: 2rem;                          /* Öğeler arası boşluk */
+    background: #fff;                  /* Beyaz arka plan */
 }
 
 .about-img img {
-    width: 35vw;
+    width: 35vw;                        /* Görsel genişliği ekranın %35’i kadar */
 }
 
 .heading {
-    text-align: center;
-    font-size: 4.5rem;
+    text-align: center;                /* Ortalı başlık */
+    font-size: 4.5rem;                 /* Büyük başlık yazı boyutu */
 }
 
 .about-content h2 {
-    text-align: left;
-    line-height: 1.2;
+    text-align: left;                  /* Başlık sola hizalı */
+    line-height: 1.2;                  /* Satır yüksekliği az */
 }
 
 .about-content h3 {
-    font-size: 2.6rem;
+    font-size: 2.6rem;                 /* Orta boy başlık */
 }
 
 .about-content p {
-    font-size: 2.3rem;
-    margin: 2rem 0;
+    font-size: 2.3rem;                 /* Paragraf yazı boyutu */
+    margin: 2rem 0;                    /* Üst ve alt boşluk */
 }
 
 .skills {
-    background-color: #ffffff;
+    background-color: #ffffff;         /* Beyaz arka plan */
 }
 
-    .skills h2 {
-        margin-bottom: 5rem;
-    }
+.skills h2 {
+    margin-bottom: 5rem;               /* Alt boşluk */
+}
 
-    .skills p {
-        font-size: 2.6rem;
-    }
+.skills p {
+    font-size: 2.6rem;                 /* Yazı boyutu büyük */
+}
 
 .skills-box {
-    text-align: center;
-    width: 100%;
-    height: 200px;
-    display: inline-block;
-    margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
+    text-align: center;                /* Metin ortalanır */
+    width: 100%;                       /* Genişlik tam */
+    height: 200px;                     /* Sabit yükseklik */
+    display: inline-block;             /* Satır içi blok yapısı */
+    margin: 0;                         /* Dış boşluk yok */
+    padding: 20px;                     /* İç boşluk var */
+    box-sizing: border-box;            /* Padding dahil hesaplanır */
 }
 
 .skills-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
+    display: flex;                        /* Flexbox kullanılarak kutular yan yana sıralanır */
+    justify-content: center;             /* İçerikler yatayda ortalanır */
+    align-items: center;                 /* Dikeyde ortalanır */
+    flex-wrap: wrap;                     /* Elemanlar sığmazsa alt satıra geçer */
+    gap: 2rem;                           /* Kutular arasında boşluk bırakılır */
 }
 
-    .skills-container .skills-box {
-        flex: 1 1 30rem;
-        background: #f5e2e2;
-        padding: 3rem 2rem 4rem;
-        border-radius: 2rem;
-        text-align: center;
-        border: .2rem solid var(--text-color);
-        transition: .5s ease;
-    }
+.skills-container .skills-box {
+    flex: 1 1 30rem;                     /* Esnek genişlik, minimum 30rem */
+    background: #f5e2e2;                 /* Açık pembe arka plan */
+    padding: 3rem 2rem 4rem;             /* Üst/yan/alt iç boşluklar */
+    border-radius: 2rem;                 /* Yuvarlatılmış köşeler */
+    text-align: center;                  /* Metin ortalanır */
+    border: .2rem solid var(--text-color); /* Kenarlık yazı rengine göre */
+    transition: .5s ease;                /* Geçiş efekti (yumuşak) */
+}
 
-        .skills-container .skills-box:hover {
-            border-color: #fff;
-            transform: scale(1.02);
-        }
+.skills-container .skills-box:hover {
+    border-color: #fff;                  /* Üzerine gelindiğinde kenarlık beyaz olur */
+    transform: scale(1.02);              /* Kutuyu biraz büyütür (zoom efekti) */
+}
 
 .skills-box i {
-    font-size: 7rem;
-    color: var(--text-color);
+    font-size: 7rem;                     /* İkon boyutu büyük */
+    color: var(--text-color);           /* İkon rengi değişkenden alınır */
 }
 
 .skills-box h3 {
-    font-size: 2.6rem;
+    font-size: 2.6rem;                   /* Başlık yazı boyutu */
 }
 
 .skills-box p {
-    font-size: 1.6rem;
-    margin: 1rem 0 3rem;
+    font-size: 1.6rem;                   /* Paragraf yazı boyutu */
+    margin: 1rem 0 3rem;                 /* Üst ve alt boşluklar */
 }
 
 .portfolio {
-    background: var(--bg-color);
+    background: var(--bg-color);         /* Arka plan değişkenden alınır */
 }
 
 .portfolio-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 1rem;
+    display: grid;                       /* Grid düzeni kullanılır */
+    grid-template-columns: repeat(2, 1fr); /* 2 sütunlu yapı */
+    grid-template-rows: repeat(2, 1fr);     /* 2 satırlı yapı */
+    gap: 1rem;                           /* Hücreler arası boşluk */
 }
 
 .portfolio-box {
-    position: relative;
-    border-radius: 2rem;
-    box-shadow: 0 0 1rem black;
-    overflow: hidden;
-    display: flex;
-    width: 100%;
-    height: 200px;
+    position: relative;                  /* İçeriği konumlandırmak için göreceli konum */
+    border-radius: 2rem;                 /* Köşeler yuvarlatılır */
+    box-shadow: 0 0 1rem black;          /* Siyah gölge efekti */
+    overflow: hidden;                    /* Taşan içerikler gizlenir */
+    display: flex;                       /* İçeriği düzenlemek için flexbox */
+    width: 100%;                         /* Tam genişlik */
+    height: 200px;                       /* Sabit yükseklik */
 }
 
-    .portfolio-box img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        transition: .5s ease;
-    }
+.portfolio-box img {
+    width: 100%;                         /* Görsel tam genişlik */
+    height: 100%;                        /* Görsel tam yükseklik */
+    object-fit: contain;                 /* Görsel boyutu taşmadan sığar */
+    transition: .5s ease;                /* Yumuşak geçiş efekti */
+}
 
-    .portfolio-box:hover img {
-        transform: scale(1.05);
-    }
+.portfolio-box:hover img {
+    transform: scale(1.05);              /* Üzerine gelince biraz büyütülür */
+}
 
-    .portfolio-box .portfolio-layer {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(rgba(0, 0, 0, .1), rgb(100, 49, 57));
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
-        padding: 0.4rem;
-        transform: translateY(100%);
-        transition: .5s ease;
-    }
+.portfolio-box .portfolio-layer {
+    position: absolute;                  /* Mutlak konumlama */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, .1), rgb(100, 49, 57)); /* Gradyan arka plan */
+    display: flex;                       /* Flex düzeni */
+    justify-content: center;            /* Ortala (yatay) */
+    align-items: center;                /* Ortala (dikey) */
+    flex-direction: column;             /* Elemanlar alt alta */
+    text-align: center;                 /* Metin ortalanır */
+    padding: 0.4rem;                     /* İç boşluk */
+    transform: translateY(100%);         /* Başlangıçta dışta kalır (gizlenir) */
+    transition: .5s ease;                /* Geçiş efekti */
+}
 
-    .portfolio-box:hover .portfolio-layer {
-        transform: translateY(0);
-    }
-
-
+.portfolio-box:hover .portfolio-layer {
+    transform: translateY(0);            /* Üzerine gelince görünür olur */
+}
 
 .portfolio-layer h4 {
-    font-size: 3rem;
-    color: antiquewhite;
+    font-size: 3rem;                     /* Başlık yazı boyutu */
+    color: antiquewhite;                /* Açık krem renk */
 }
 
 .portfolio-layer p {
-    color: antiquewhite;
-    font-size: 1.6rem;
-    margin: .3rem 0 1rem;
+    color: antiquewhite;                /* Paragraf yazı rengi */
+    font-size: 1.6rem;                  /* Paragraf yazı boyutu */
+    margin: .3rem 0 1rem;               /* Boşluklar */
 }
 
 .portfolio-layer a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+    display: inline-flex;               /* Satır içi flex */
+    justify-content: center;            /* Yatayda ortalanır */
+    align-items: center;                /* Dikeyde ortalanır */
     width: 5rem;
-    height: 5rem;
-    background-color: #b39595;
-    border-radius: 50%;
+    height: 5rem;                        /* Kare buton */
+    background-color: #b39595;          /* Arka plan rengi (pembe ton) */
+    border-radius: 50%;                 /* Tam daire şekli */
 }
 
-    .portfolio-layer a i {
-        font-size: 2rem;
-        color: var(--second-bg-color);
-    }
-
+.portfolio-layer a i {
+    font-size: 2rem;                    /* İkon boyutu */
+    color: var(--second-bg-color);      /* İkon rengi (değişken) */
+}
 .contact {
-    background-color: #b39595;
+    background-color: #b39595; /* İletişim bölümünün arka plan rengi (pembe ton) */
 }
 
-    .contact h2 {
-        margin-bottom: 3rem;
-    }
+.contact h2 {
+    margin-bottom: 3rem; /* Başlığın altına boşluk eklenir */
+}
 
-    .contact form {
-        max-width: 70rem;
-        margin: 1rem auto;
-        text-align: center;
-        margin-bottom: 3rem;
-    }
+.contact form {
+    max-width: 70rem;       /* Formun maksimum genişliği */
+    margin: 1rem auto;      /* Yukarıdan boşluk ve ortalama */
+    text-align: center;     /* Yazılar ortalanır */
+    margin-bottom: 3rem;    /* Formun altına boşluk verilir */
+}
 
-        .contact form .input-box {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
+.contact form .input-box {
+    display: flex;                  /* Elemanlar yatayda sıralanır */
+    justify-content: space-between;/* Aralarında boşluk bırakılır */
+    flex-wrap: wrap;                /* Taşma durumunda alta geçilir */
+}
 
-            .contact form .input-box input,
-            .contact form textarea {
-                width: 100%;
-                padding: 1.5rem;
-                font-size: 1.6rem;
-                color: #6a5050;
-                background: #d5c8c8;
-                border-radius: .8rem;
-                margin: .7rem 0;
-            }
+.contact form .input-box input,
+.contact form textarea {
+    width: 100%;            /* Genişlik tamamen doldurur */
+    padding: 1.5rem;        /* İç boşluk */
+    font-size: 1.6rem;      /* Yazı boyutu */
+    color: #6a5050;         /* Yazı rengi */
+    background: #d5c8c8;    /* Arka plan rengi */
+    border-radius: .8rem;   /* Köşeler yuvarlatılır */
+    margin: .7rem 0;        /* Üst-alt boşluk */
+}
 
-            .contact form .input-box input {
-                width: 49%;
-            }
+.contact form .input-box input {
+    width: 49%;             /* Yan yana iki kutu için %49 genişlik */
+}
 
-        .contact form text {
-            resize: none;
-        }
+.contact form text {
+    resize: none;           /* Boyutlandırma engellenir (ama "text" değil "textarea" olmalı) */
+}
 
-    .contact from .btn {
-        margin-top: 2rem;
-        cursor: pointer;
-    }
+.contact from .btn {
+    margin-top: 2rem;       /* Butonun üstüne boşluk */
+    cursor: pointer;        /* Üzerine gelince el simgesi olur */
+}
+/* NOT: "from" yazım hatası, doğrusu "form" */
 
 .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 2rem 9%;
-    background: #d5c8c8;
+    display: flex;                  /* Flexbox yapısı */
+    justify-content: space-between;/* Elemanlar iki yana yayılır */
+    align-items: center;           /* Dikey ortalama */
+    flex-wrap: wrap;               /* Taşanlar alta iner */
+    padding: 2rem 9%;              /* İç boşluk (üst-alt 2rem, yanlar %9) */
+    background: #d5c8c8;           /* Açık gri arka plan */
 }
 
-    .footer p {
-        font-size: 1.6rem;
-    }
+.footer p {
+    font-size: 1.6rem;             /* Yazı boyutu */
+}
 
 .footer-iconTop a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: .8rem;
-    border-radius: .8rem;
-    transition: .5 ease;
+    display: inline-flex;          /* Satır içi kutu */
+    justify-content: center;       /* Yatay ortalama */
+    align-items: center;           /* Dikey ortalama */
+    padding: .8rem;                /* İç boşluk */
+    border-radius: .8rem;          /* Köşeler yuvarlatılır */
+    transition: .5 ease;           /* Geçiş efekti (yazım hatası: .5s olmalı) */
 }
 
-    .footer-iconTop a:hover {
-        box-shadow: 0 0 1rem rgb(47, 25, 47);
-    }
+.footer-iconTop a:hover {
+    box-shadow: 0 0 1rem rgb(47, 25, 47); /* Hover durumunda gölge efekti */
+}
 
-    .footer-iconTop a i {
-        font-size: 2.4rem;
-        color: #2d2222;
-    }
+.footer-iconTop a i {
+    font-size: 2.4rem;             /* İkon boyutu */
+    color: #2d2222;                /* İkon rengi */
+}
 
 #cevapDiv {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    font-size: 23px;
-    color: #333;
+    margin-top: 20px;              /* Üst boşluk */
+    padding: 10px;                 /* İç boşluk */
+    background-color: #f1f1f1;     /* Arka plan rengi */
+    border-radius: 5px;            /* Köşeler yuvarlatılır */
+    font-size: 23px;               /* Yazı boyutu */
+    color: #333;                   /* Yazı rengi (koyu gri) */
 }
 
+/* MEDYA SORGULARI – RESPONSIVE TASARIM */
 
 @media (max-width: 1200px) {
     html {
-        font-size: 55%;
+        font-size: 55%;            /* Sayfa küçüldüğünde yazı boyutu orantılı küçülür */
     }
 }
 
-@media (max-width:991px) {
+@media (max-width: 991px) {
     .header {
-        padding: 2rem 3%;
+        padding: 2rem 3%;          /* Header iç boşluğu daraltılır */
     }
 
     section {
-        padding: 10rem 3% 2rem;
+        padding: 10rem 3% 2rem;    /* Sayfa bölümleri daha az boşlukla gösterilir */
     }
 
     .services {
-        padding-bottom: 7rem;
+        padding-bottom: 7rem;      /* Alt boşluk verilir */
     }
 
     .portfolio {
-        padding-bottom: 7rem;
+        padding-bottom: 7rem;      /* Alt boşluk verilir */
     }
 
     .contact {
-        min-height: auto;
+        min-height: auto;          /* Minimum yükseklik kaldırılır */
     }
 
     .footer {
-        padding: 2rem 3%;
+        padding: 2rem 3%;          /* Footer iç boşluğu daraltılır */
     }
 }
 
 @media (max-width: 768px) {
     #menu-icon {
-        display: block;
+        display: block; /* Ekran genişliği 768px’den küçükse menü ikonu görünür olur */
     }
 
     .navbar {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 1rem 3%;
-        background: var(--bg-color);
-        border-top: .1rem solid bisque;
-        box-shadow: 0 .5rem 1rem #b39595;
-        display: none;
+        position: absolute; /* Konumu sabitle: diğer elementlere göre ayarla */
+        top: 100%;           /* Header’ın hemen altından başlasın */
+        left: 0;             /* Sol kenardan başlasın */
+        width: 100%;         /* Tam genişlik kaplasın */
+        padding: 1rem 3%;    /* İç boşluklar */
+        background: var(--bg-color); /* Arka plan rengi değişkenden alınır */
+        border-top: .1rem solid bisque; /* Üst kenarlık */
+        box-shadow: 0 .5rem 1rem #b39595; /* Gölge efekti verilir */
+        display: none;       /* Başlangıçta görünmez */
     }
 
-        .navbar.active {
-            display: block;
-        }
+    .navbar.active {
+        display: block; /* Menü aktif olduğunda görünür olur (JS ile sınıf eklenir) */
+    }
 
-        .navbar a {
-            display: block;
-            font-size: 2rem;
-            margin: 3rem 0;
-        }
+    .navbar a {
+        display: block;       /* Menü öğeleri blok yapılar (dikey hizalanır) */
+        font-size: 2rem;      /* Yazı boyutu büyütülür */
+        margin: 3rem 0;       /* Üst-alt boşluk verilir */
+    }
 
     .home {
-        flex-direction: column;
+        flex-direction: column; /* Anasayfa bölümleri alt alta dizilir */
     }
 
     .home-content h1 {
-        font-size: 5rem;
+        font-size: 5rem; /* Başlık boyutu küçültülür */
     }
 
-
     .home-img img {
-        width: 70vw;
-        margin-top: 4rem;
+        width: 70vw;        /* Görsel ekranın %70'ini kaplar */
+        margin-top: 4rem;   /* Üst boşluk verilir */
     }
 
     .about {
-        flex-direction: column-reverse;
+        flex-direction: column-reverse; /* Görsel alta, metin üste gelir */
     }
 
-        .about img {
-            width: 70vw;
-            margin-top: 4rem;
-        }
+    .about img {
+        width: 70vw;        /* Görsel genişliği %70 olur */
+        margin-top: 4rem;   /* Üst boşluk verilir */
+    }
 
     .services h2 {
-        margin-bottom: 3rem;
+        margin-bottom: 3rem; /* Hizmetler başlığına alt boşluk eklenir */
     }
 
     .portfolio h2 {
-        margin-bottom: 3rem;
+        margin-bottom: 3rem; /* Portfolyo başlığına alt boşluk eklenir */
     }
 
     .portfolio-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* 2 sütunlu grid düzeni */
     }
 }
 
 @media (max-width: 617px) {
     .portfolio-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Ekran daraldıkça grid tek sütuna düşer */
     }
 }
 
 @media (max-width: 450px) {
     html {
-        font-size: 50%;
+        font-size: 50%; /* Yazı boyutu daha da küçültülür (responsive yazı) */
     }
 
     .contact form .input-box input {
-        width: 100%;
+        width: 100%; /* Giriş kutuları tam genişlikte olur */
     }
 }
 
 @media (max-width: 365px) {
     .home-img img {
-        width: 90vw;
+        width: 90vw; /* Görsel ekranın %90'ını kaplar */
     }
 
     .about-img img {
-        width: 90vw;
+        width: 90vw; /* Hakkında bölümündeki görsel de %90 genişlikte olur */
     }
+}
 
-    .footer {
-        flex-direction: column-reverse;
-    }
+.footer {
+    flex-direction: column-reverse; /* Footer elemanları alt alta ve ters sırayla dizilir */
+}
 
-        .footer p {
-            text-align: center;
-            margin-top: 2rem;
-        }
+.footer p {
+    text-align: center; /* Yazı ortalanır */
+    margin-top: 2rem;   /* Üst boşluk verilir */
 }
 
 .recommendation-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 3rem;
-    max-height: 70vh; /* Yüksekliği sınırlıyoruz */
-    overflow-y: auto
+    display: flex;              /* Flex düzeni kullanılır */
+    flex-wrap: wrap;            /* Kartlar taşarsa alt satıra geçer */
+    justify-content: center;    /* Ortalanır */
+    gap: 2rem;                  /* Kartlar arası boşluk */
+    margin-top: 3rem;           /* Yukarıdan boşluk */
+    max-height: 70vh;           /* Maksimum yükseklik ekranın %70’i */
+    overflow-y: auto;           /* Yüksekliği aşarsa dikey kaydırma */
 }
 
 .product-card {
-    background-color: #fff;
-    display: flex;
-    padding: 2rem;
-    border-radius: 1.5rem;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #fff;                            /* Beyaz arka plan */
+    display: flex;                                     /* İçeriği yatay sırala */
+    padding: 2rem;                                     /* İç boşluk */
+    border-radius: 1.5rem;                             /* Köşeler yuvarlatıldı */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);            /* Hafif gölge efekti */
+    width: 300px;                                      /* Sabit genişlik */
+    transition: transform 0.3s, box-shadow 0.3s;       /* Hover geçiş efekti */
 }
 
-    .product-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
+.product-card:hover {
+    transform: translateY(-5px);                       /* Hover’da yukarı kayar */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);          /* Gölge derinleşir */
+}
 
 .output-title {
-    font-size: 2.4rem;
-    color: var(--text-color);
-    text-align: center;
-    margin-bottom: 2rem;
+    font-size: 2.4rem;             /* Başlık yazı boyutu */
+    color: var(--text-color);     /* Yazı rengi değişkenden */
+    text-align: center;           /* Ortalı */
+    margin-bottom: 2rem;          /* Alt boşluk */
 }
-
-.recommendation-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.product-card {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 1.5rem;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-    .product-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
-
-.output-title {
-    font-size: 2.4rem;
-    color: var(--text-color);
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-
 
 .baloncuk {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 3rem;
-    margin: 5rem auto;
-    background-color: #f9f3fb;
-    border-radius: 2rem;
-    box-shadow: 0 4px 25px rgba(101, 75, 101, 0.12);
-    width: 90%;
-    max-width: 700px;
-    scroll-margin-top: 10px; /* header yüksekliği kadar */
+    display: flex;                                /* Flexbox kullanılır */
+    flex-direction: column;                      /* Elemanlar dikey sıralanır */
+    justify-content: center;                     /* Dikey ortalama */
+    align-items: center;                         /* Yatay ortalama */
+    padding: 3rem;                               /* İç boşluk */
+    margin: 5rem auto;                           /* Dikey boşluk ve ortalama */
+    background-color: #f9f3fb;                   /* Açık lila arka plan */
+    border-radius: 2rem;                         /* Yuvarlak köşeler */
+    box-shadow: 0 4px 25px rgba(101, 75, 101, 0.12); /* Hafif morumsu gölge */
+    width: 90%;                                  /* Genişlik ekranın %90’ı */
+    max-width: 700px;                            /* Maksimum genişlik */
+    scroll-margin-top: 10px;                     /* Scroll’da başlık hizası */
 }
 
-    .baloncuk input[type="text"] {
-        width: 100%;
-        padding: 1.8rem;
-        border-radius: 1.2rem;
-        border: 2px solid rgba(101, 75, 101, 0.2);
-        font-size: 2rem;
-        color: var(--text-color);
-        background-color: #fff;
-        margin-bottom: 2.5rem;
-        transition: 0.3s ease;
-        box-shadow: 0 2px 5
-    }
+.baloncuk input[type="text"] {
+    width: 100%;                                   /* Tam genişlik */
+    padding: 1.8rem;                               /* İç boşluk */
+    border-radius: 1.2rem;                         /* Yuvarlak kenarlar */
+    border: 2px solid rgba(101, 75, 101, 0.2);     /* Açık mor kenarlık */
+    font-size: 2rem;                               /* Yazı boyutu */
+    color: var(--text-color);                     /* Yazı rengi */
+    background-color: #fff;                        /* Beyaz arka plan */
+    margin-bottom: 2.5rem;                         /* Alt boşluk */
+    transition: 0.3s ease;                         /* Geçiş efekti */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);       /* Hafif gölge */
+}
 
-    .baloncuk button {
-        background-color: var(--text-color);
-        color: #fff;
-        border: none;
-        padding: 1.5rem 3rem;
-        border-radius: 1.2rem;
-        font-size: 2.2rem;
-        font-weight: 500;
-        cursor: pointer;
-        width: 100%; /* Match input width */
-        max-width: 400px; /* Same max as input field */
-        margin: 0 auto;
-        transition: all 0.3s ease-in-out;
-        text-align: center;
-    }
+.baloncuk button {
+    background-color: var(--text-color); /* Buton arka planı yazı rengiyle */
+    color: #fff;                         /* Beyaz yazı */
+    border: none;                        /* Kenarlık yok */
+    padding: 1.5rem 3rem;                /* İç boşluk */
+    border-radius: 1.2rem;               /* Yuvarlak kenarlar */
+    font-size: 2.2rem;                   /* Yazı boyutu */
+    font-weight: 500;                    /* Yarı kalın yazı */
+    cursor: pointer;                     /* El simgesi */
+    width: 100%;                         /* Genişlik input’la eşit */
+    max-width: 400px;                    /* Maksimum genişlik */
+    margin: 0 auto;                      /* Ortalanır */
+    transition: all 0.3s ease-in-out;    /* Geçiş efekti */
+    text-align: center;                  /* Yazı ortalanır */
+}
 
-        .baloncuk button:hover {
-            background-color: rgba(101, 75, 101, 0.9);
-            transform: scale(1.03);
-        }
+.baloncuk button:hover {
+    background-color: rgba(101, 75, 101, 0.9); /* Hover’da daha koyu arka plan */
+    transform: scale(1.03);                    /* Hafif büyütme efekti */
+}
 
 .kategori-bilgi {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4rem;
-    font-size: 2rem;
-    margin: 2rem auto;
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-color);
-    font-weight: 600;
-    white-space: nowrap;
+    display: flex;                        /* Flex düzeni */
+    justify-content: center;             /* Yatayda ortalanır */
+    align-items: center;                 /* Dikeyde ortalanır */
+    gap: 4rem;                           /* Elemanlar arası boşluk */
+    font-size: 2rem;                     /* Yazı boyutu */
+    margin: 2rem auto;                   /* Dikey boşluk ve ortalama */
+    font-family: 'Poppins', sans-serif; /* Yazı tipi */
+    color: var(--text-color);           /* Yazı rengi */
+    font-weight: 600;                   /* Kalın yazı */
+    white-space: nowrap;                /* Satır kaydırma engellenir */
 }
 
-    .kategori-bilgi .kategori,
-    .kategori-bilgi .alt-kategori {
-        font-weight: 600;
-        color: var(--text-color);
-        font-family: 'Poppins', sans-serif;
-        display: inline-block;
-        margin: 0;
-        padding: 0;
-    }
+.kategori-bilgi .kategori,
+.kategori-bilgi .alt-kategori {
+    font-weight: 600;                   /* Kalın yazı */
+    color: var(--text-color);          /* Yazı rengi */
+    font-family: 'Poppins', sans-serif;/* Yazı tipi */
+    display: inline-block;             /* Satır içi blok */
+    margin: 0;                          /* Dış boşluk yok */
+    padding: 0;                         /* İç boşluk yok */
+}
