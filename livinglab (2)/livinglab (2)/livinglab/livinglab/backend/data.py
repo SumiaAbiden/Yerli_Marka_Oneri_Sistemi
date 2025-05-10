@@ -67,10 +67,19 @@ def belirle_alt_kategori(row):
             return ['Klima']
         elif any(x in urun_kelime_listesi for x in ['saç', 'ütü', 'sebili', 'tartı', 'süpürge', 'ütüler']):
             return ['Küçük Ev Aletleri']
-        elif any(x in urun_kelime_listesi for x in ['kızartma', 'fritöz', 'mikrodalga', 'blender', 'mikser', 'mikseri',
-                                                    'çay', 'kahve', 'tost', 'meyve', 'ekmek', 'ızgara', 'blenderı',
-                                                    'kıyma', 'yoğurt', 'mutfak', 'süt']):
+        elif any(x in urun_kelime_listesi for x in ['mikrodalga', 'mikseri','çay', 'kahve', 'tost', 'meyve', 'ekmek',
+                                                    'ızgara', 'blenderı', 'kıyma', 'yoğurt', 'mutfak', 'süt']):
             return ['Küçük Mutfak Aletleri']
+        elif any(x in urun_kelime_listesi for x in ['kızartma', 'fritöz']):
+            return ['Fritöz', 'Küçük Mutfak Aletleri']
+        elif any(x in urun_kelime_listesi for x in ['blender', 'mikser']):
+            return ['Blender', 'Küçük Mutfak Aletleri']
+        elif any(x in urun_kelime_listesi for x in ['çamaşır']):
+            return ['Çamaşır Makinesi', 'Beyaz Eşya']
+        elif any(x in urun_kelime_listesi for x in ['bulaşık']):
+            return ['Bulaşık Makinesi', 'Beyaz Eşya']
+        elif any(x in urun_kelime_listesi for x in ['buzdolabı']):
+            return ['Buzdolabı', 'Beyaz Eşya']
         elif any(x in urun_kelime_listesi for x in ['çamaşır', 'bulaşık', 'kurutma', 'buzdolabı', 'fırın']):
             return ['Beyaz Eşya']
         elif any(x in urun_kelime_listesi for x in ['su']):
@@ -81,7 +90,7 @@ def belirle_alt_kategori(row):
     elif kategori == 'temizlik ürünü':
         if any(x in urun_kelime_listesi for x in ['deterjan', 'çamaşır', 'yumuşatıcı', 'matik']):
             return ['Çamaşır Temizliği']
-        elif any(x in urun_kelime_listesi for x in ['sabun', 'şampuan', 'el', 'duş', 'sabunu', 'kulak']):
+        elif any(x in urun_kelime_listesi for x in ["krem", 'sabun', 'şampuan', 'el', 'duş', 'sabunu', 'kulak']):
             return ['Kişisel Temizlik']
         elif any(x in urun_kelime_listesi for x in ['bulaşık', 'tableti']):
             return ['Bulaşık Temizliği']
@@ -97,7 +106,7 @@ def belirle_alt_kategori(row):
             return ['Temizlik bezi/Süngeri/Paspas']
         elif any(x in urun_kelime_listesi for x in ['leke', 'tüy', 'genel', 'çok', 'amaçlı']):
             return ['Genel Temizlik']
-        elif any(x in urun_kelime_listesi for x in ['eldiven', 'poşeti', 'çöp', 'folyo', 'pişirme', 'streç', 'yağ']):
+        elif any(x in urun_kelime_listesi for x in ['eldiven', 'poşeti', 'çöp', 'folyo', 'pişirme', 'streç']):
             return ['Mutfak']
         else:
             return ['Diğer Temizlik']
