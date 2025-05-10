@@ -29,26 +29,24 @@ classifier = pipeline(
 # Ana kategoriler (ilk sınıflandırmada kullanılacak)
 category_labels = ["gıda", "elektronik", "otomotiv", "temizlik"]
 
-# 1. Seviye alt kategoriler (ana kategoriye bağlı olarak)
+# Subcategories
 alt_category_labels = {
-    "gıda": ["İçecek", 'Atıştırmalık', "Yağ", "Kahvaltılık", 'Yoğurt', 'Et', "Diğer Gıda"],
-    "elektronik": ["Beyaz Eşya", "Televizyon", "Ses Sistemi / Kulaklık", "Küçük Ev Aletleri",
-                   "Küçük Mutfak Aletleri", "Klima", "Diğer Elektronik"],
-    "temizlik": ["Çamaşır Temizliği", "Kişisel Temizlik", 'Banyo Temizliği', "Oda Kokusu",
-                 "Bulaşık Temizliği", "Yüzey Temizliği", 'Makine Temizleyici', 'Mutfak',
-                 'Temizlik bezi/Süngeri/Paspas', 'Genel Temizlik', "Diğer Temizlik"],
+    "gıda": ["İçecek",  'Atıştırmalık', "Yağ",  "Kahvaltılık", 'Yoğurt', 'Et', "Diğer Gıda"],
+    "elektronik": ["Beyaz Eşya", "Televizyon", "Ses Sistemi / Kulaklık", "Küçük Ev Aletleri", "Fritöz", "Blender",
+                   "Küçük Mutfak Aletleri", "Klima","Çamaşır Makinesi", "Bulaşık Makinesi", "buzdolabı" "Diğer Elektronik"],
+    "temizlik": ["Çamaşır Temizliği", "Kişisel Temizlik", 'Banyo Temizliği', "Oda Kokusu", "Bulaşık Temizliği",
+                 "Yüzey Temizliği", 'Makine Temizleyici', 'Mutfak', 'Temizlik bezi/Süngeri/Paspas',
+                 'Genel Temizlik', "Diğer Temizlik"],
     "otomotiv": ["Otomotiv / Savunma"]
 }
 
-# 2. Seviye alt kategoriler (örneğin içecek -> süt, su...)
 alt_category_labels2 = {
-    "İçecek": ["Süt", "Su", "Sıcak İçecek", "Soğuk İçecek"],
+    "İçecek" : ["Süt", "Su", "Sıcak İçecek", "Soğuk İçecek"],
     "Atıştırmalık": ["Çikolata", "Kraker", "Bisküvi", "Kek", "Dondurma", "Şekerleme"]
 }
 
-# 3. Seviye alt kategoriler (örnek: Soğuk İçecek → Gazlı İçecek, Soğuk Çay...)
 alt_category_labels3 = {
-    "Soğuk İçecek": ["Meyve Suyu", 'Soğuk çay', "Soda", 'Enerji İçeceği', "Gazlı İçecek"],
+    "Soğuk İçecek" : ["Meyve Suyu", 'Soğuk çay', "Soda", 'Enerji İçeceği', "Gazlı İçecek"],
     "Sıcak İçecek": ["Kahve", "Çay"]
 }
 
