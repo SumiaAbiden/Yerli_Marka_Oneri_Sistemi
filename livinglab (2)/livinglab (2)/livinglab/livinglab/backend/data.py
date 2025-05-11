@@ -120,10 +120,6 @@ def belirle_alt_kategori(row):
 # Alt kategorileri liste olarak al
 df['Alt Kategoriler'] = df.apply(belirle_alt_kategori, axis=1)
 
-# Maksimum kaç alt kategori varsa o kadar sütun oluştur
-max_alt_kat = df['Alt Kategoriler'].apply(len).max()
-
-
 
 # Kaydet
 df.to_csv("scraped_data_with_subcategories.csv", index=False)
