@@ -93,8 +93,8 @@ section{
     flex-direction: column; /* Dikey hizalama */
     justify-content: center;
     align-items: center;
-    height: 160vh; /* Normalden büyük alan */
-    padding: 20px;
+    height: auto; /* Normalden büyük alan */
+    padding: 8rem 2rem 4rem;
 }
 
 /* Ana görsel stili */
@@ -480,7 +480,7 @@ span {
 
 @media (max-width: 991px) {
     .header {
-        padding: 2rem 3%;          /* Header iç boşluğu daraltılır */
+        padding: 6rem 9% 4rem;          /* Header iç boşluğu daraltılır */
     }
 
     section {
